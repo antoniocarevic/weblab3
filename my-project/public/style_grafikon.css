@@ -1,0 +1,228 @@
+/* Opći stilovi */
+body {
+    --c1:#FF6F61;
+    --c2:#6B7280;
+    --c3:#F7C948;
+    --c4:#98D8AA;
+    --c5:#D69FDD;
+    --c6:#FF9F1C;
+    --c7:#5BC0EB;
+    --c8:#FFD166;
+    --c9:#9B5DE5;
+    --c10:#F94144;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    text-align: center;
+    
+}
+
+/* Header */
+header {
+    background: #222;
+    color: white;
+    padding: 20px;
+}
+
+
+.navbar {
+    background-color: white;
+    padding: 10px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start; 
+    margin-bottom: 40px;
+}
+
+.menu_text {
+    font-size: 24px;
+    margin: 0; 
+    padding: 5px; 
+}
+
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 25%; 
+    cursor: pointer;
+    padding: 5px;
+    position: relative;
+    margin-left: 10px;
+    margin-bottom: 70px;
+}
+
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%; 
+    left: 0;
+    background-color: #2980b9;
+    width: 99%;
+    padding: 10px;
+    margin: 0;
+    list-style: none;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+
+.menu:hover .dropdown-content {
+    display: block; 
+    opacity: 1;
+}
+
+
+.dropdown-content li {
+    margin: 8px 0;
+}
+
+.dropdown-content li:hover {
+    background-color: #222;
+}
+
+
+.dropdown-content a {
+    color: #fff;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    color: #ecf0f1;
+}
+main {
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+    flex-wrap: nowrap; 
+    justify-content: center; 
+    padding-bottom: 35px;
+}
+
+
+footer {
+    margin-top: 30px;
+    padding: 10px;
+    background: #222;
+    color: white;
+    height: 100%;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        justify-content: center; 
+    }
+
+    .dropdown-content {
+        width: 99%; 
+    }
+
+    main{
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.charts{
+    display: flex;
+    place-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.pie{
+    flex: 1 0 225px;
+    max-width: 325px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background-image: conic-gradient(
+        var(--c1) 0% 26.32%,      
+        var(--c2) 26.32% 52.64%,  
+        var(--c3) 52.64% 63.17%,  
+        var(--c4) 63.17% 68.43%,  
+        var(--c5) 68.43% 73.69%,  
+        var(--c6) 73.69% 78.95%,  
+        var(--c7) 78.95% 84.21%,  
+        var(--c8) 84.21% 89.47%,  
+        var(--c9) 89.47% 94.73%,  
+        var(--c10) 94.73% 100%     
+    );
+    animation: chart-animation 2s ease-out;
+}
+
+.legend{
+    font-size: 0.9rem;
+    margin-block-end: 2rem;
+    flex-basis: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: wrap;
+    gap:1rem;
+}
+
+.legend span{
+    position: relative;
+    padding-inline-start: 1.25rem;
+}
+
+.legend span::before{
+    position: absolute;
+    top:0rem;
+    left: 0;
+    content: '';
+    width: 0.8rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+}
+
+.legend span:nth-child(1)::before{
+    background-color: var(--c1);
+}
+.legend span:nth-child(2)::before{
+    background-color: var(--c2);
+}
+.legend span:nth-child(3)::before{
+    background-color: var(--c3);
+}
+.legend span:nth-child(4)::before{
+    background-color: var(--c4);
+}
+.legend span:nth-child(5)::before{
+    background-color: var(--c5);
+}
+.legend span:nth-child(6)::before{
+    background-color: var(--c6);
+}
+.legend span:nth-child(7)::before{
+    background-color: var(--c7);
+}
+.legend span:nth-child(8)::before{
+    background-color: var(--c8);
+}
+.legend span:nth-child(9)::before{
+    background-color: var(--c9);
+}
+.legend span:nth-child(10)::before{
+    background-color: var(--c10);
+}
+
+
+@keyframes chart-animation {
+    0%   { transform: scale(1); }
+    25%  { transform: scale(1.05); } 
+    50%  { transform: scale(0.98) rotate(2deg); } 
+    75%  { transform: scale(1.02) rotate(-2deg); } 
+    100% { transform: scale(1); }
+  }
+
+

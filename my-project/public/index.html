@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Stranica za sve ljubitelje filmova">
+    <meta name="keywords" content="Film, Movie">
+    <meta name="author" content="Antonio Carevic">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    <title>Filmska Saga</title>
+</head>
+<body>
+    <header>
+        <h1>Filmska Saga - za sve ljubitelje filmova</h1>
+        
+    </header>
+
+    <nav aria-labelledby="primarna-navigacija" class="navbar">
+        <label class="menu">
+            <p class="menu_text">Meni</p>
+            <ul class="dropdown-content">
+                <li><a href="#">Početna</a></li>
+                <li><a href="grafikon.html">Grafikon</a></li>
+                <li><a href="slike.html">Slike</a></li>
+            </ul>
+        </label>
+        <button id="pogledaj-kosaricu" class="cart-button">Košarica (<span id="broj-u-kosarici">0</span>)</button>
+    </nav>
+    
+    <h1>Popis Filmova</h1>
+    <div id="filteri">
+        <select id="filter-genre">
+            <option value="">Odaberi žanr</option>
+            <option value="Action">Action</option>
+            <option value="Adventure">Adventure</option>
+            <option value="Animation">Animation</option>
+            <option value="Biography">Biography</option>
+            <option value="Comedy">Comedy</option>
+            <option value="Crime">Crime</option>
+            <option value="Documentary">Documentary</option>
+            <option value="Drama">Drama</option>
+            <option value="Fantasy">Fantasy</option>
+            <option value="Grotesque">Grotesque</option>
+            <option value="Horror">Horror</option>
+            <option value="Musical">Musical</option>
+            <option value="Romantic">Romantic</option>
+            <option value="Sci-Fi">Sci-Fi</option>
+            <option value="Spy">Spy</option>
+            <option value="Thriller">Thriller</option>
+            <option value="War">War</option>
+            <option value="Western">Western</option>
+        </select>
+        <input type="number" id="filter-year-from" placeholder="Godina od" min="1900" max="2025">
+        <input type="text" id="filter-country" placeholder="Država">
+        <div class="slider-container">
+            <input type="range" id="filter-duration" min="60" max="200" value="200" step="1">
+            <span id="duration-value">200</span><span> min</span>
+        </div>
+        <button id="primijeni-filtere">Filtriraj</button>
+        <button id="reset-filtere">Resetiraj</button>
+    </div>
+    
+    <main>
+        
+        <div id="cart-modal" class="modal">
+            <div class="modal-content">
+                <span id="close-modal" class="close">&times;</span>
+                <h2>Popis za gledanje</h2>
+                <ul id="cart-list"></ul>
+            </div>
+        </div>
+        <table id="filmovi-tablica">
+            <thead>
+                <tr>
+                    <th>Naslov</th>
+                    <th>Godina</th>
+                    <th>Žanr</th>
+                    <th>Trajanje</th>
+                    <th>Država</th>
+                    <th>Broj glasova</th>
+                    <th>Dodaj u košaricu</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <aside>
+            <picture>
+                <source media="(min-width: 768px)" srcset="https://publish.purewow.net/wp-content/uploads/sites/2/2024/04/best-family-movies-2.png" class="slika1">
+                <source media="(min-width: 465px)" srcset="https://i0.wp.com/plotandtheme.com/wp-content/uploads/2016/10/movie-film.jpg?fit=515%2C245&ssl=1" class="slika2">
+                <img src="https://images.bauerhosting.com/empire/2022/01/Greatest-Movies.jpg?ar=16%3A9&fit=crop&crop=top&auto=format&w=1440&q=80" class="slika3">
+            </picture>
+        </aside>
+    </main>
+
+    <section>
+        <div class="movies-score">
+            <ul>
+                <li><span class="movie-name">Iskupljenje u Shawshanku</span><span class="movie-grade">9.3</span></li>
+                <li><span class="movie-name">Kum</span><span class="movie-grade">9.2</span></li>
+                <li><span class="movie-name">Vitez tame</span><span class="movie-grade">9.0</span></li>
+                <li><span class="movie-name">Kum2</span><span class="movie-grade">9.0</span></li>
+                <li><span class="movie-name">12 gnjevnih ljudi</span><span class="movie-grade">9.0</span></li>
+                <li><span class="movie-name">Gospodar prstenova: Povratak kralja</span><span class="movie-grade">9.0</span></li>
+                <li><span class="movie-name">Schindlerova lista</span><span class="movie-grade">9.0</span></li>
+                <li><span class="movie-name">Pakleni šund</span><span class="movie-grade">8.9</span></li>
+                <li><span class="movie-name">Gospodar prstenova: Prstenova družina</span><span class="movie-grade">8.9</span></li>
+                <li><span class="movie-name">Dobar, loš, zao</span><span class="movie-grade">8.8</span></li>
+            </ul>
+            <ul aria-hidden="true">
+                <li><span class="movie-name">Iskupljenje u Shawshanku</span><span class="movie-grade">9.3</span></li>
+                <li><span class="movie-name">Kum</span><span class="movie-grade">9.2</span></li>
+                <li><span class="movie-name">Vitez tame</span><span class="movie-grade">9.0</span></li>
+                <li><span class="movie-name">Kum2</span><span class="movie-grade">9.0</span></li>
+                <li><span class="movie-name">12 gnjevnih ljudi</span><span class="movie-grade">9.0</span></li>
+                <li><span class="movie-name">Gospodar prstenova: Povratak kralja</span><span class="movie-grade">9.0</span></li>
+                <li><span class="movie-name">Schindlerova lista</span><span class="movie-grade">9.0</span></li>
+                <li><span class="movie-name">Pakleni šund</span><span class="movie-grade">8.9</span></li>
+                <li><span class="movie-name">Gospodar prstenova: Prstenova družina</span><span class="movie-grade">8.9</span></li>
+                <li><span class="movie-name">Dobar, loš, zao</span><span class="movie-grade">8.8</span></li>
+            </ul>
+        </div>
+    </section>
+
+    
+    
+
+    <footer>
+        <p>© 2025. Web Programiranje. Sva prava pridržana.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
